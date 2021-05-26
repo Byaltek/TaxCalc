@@ -1,0 +1,46 @@
+﻿@model TaxCalc.Entities.Tax
+@{ 
+    var total = (double)(Model.taxable_amount + Model.amount_to_collect);
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.amount_to_collect)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.order_total_amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.rate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.taxable_amount)
+            </th>
+            <th>
+                @Html.DisplayName("Total Order Amount")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.Raw(Model.amount_to_collect.ToString("C"))
+            </td>
+            <td>
+                @Html.Raw(Model.order_total_amount.ToString("C"))
+            </td>
+            <td>
+                @Html.Raw(Model.rate.ToString("P2"))
+            </td>
+            <td>
+                @Html.Raw(Model.taxable_amount.ToString("C"))
+            </td>
+            <td>
+                @Html.Raw(total.ToString("C"))
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,75 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <form class="form">
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">
+                        <h1 class="panel-title">Find Tax Rate</h1>
+                    </div>
+                    <div class="panel-body">
+                        <label for="zip">Enter Zip:</label>
+                        <input class="form-control" type="text" id="zip">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" data-url="https://localhost:5001/home/gettaxrate" id="taxRateSubmit">Submit</button>
+    </form>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <hr>
+        <p></p>
+    </div>
+</div>
+<div class="row">
+    <div class="text-center hide" id="rateInfo">
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <p></p>
+    </div>
+</div>
+<div class="text-center">
+    <form class="form">
+        <div class="row">
+            <div class="col-md-12">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading text-center">
+                        <h1 class="panel-title">Calculate Tax</h1>
+                    </div>
+                    <div class="panel-body">
+                        <label for="orderAmt">Enter the order amount to calculate the tax:</label>
+                        <input class="form-control" type="text" id="orderAmt">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="btn btn-primary" type="submit" data-url="https://localhost:5001/home/CalculateRate" id="taxCalcSubmit">Submit</button>
+    </form>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <hr>
+        <p></p>
+    </div>
+</div>
+<div class="row">
+    <div class="text-center hide" id="taxInfo">
+    </div>
+</div>
