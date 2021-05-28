@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -14,11 +16,13 @@ namespace TaxCalc.Controllers
     {
         private readonly ILogger<HomeController> logger;
         private readonly ITaxService taxService;
+        private readonly IHostEnvironment env;
 
-        public HomeController(ILogger<HomeController> log, ITaxService service)
+        public HomeController(ILogger<HomeController> log, ITaxService service, IHostEnvironment environment)
         {
             logger = log;
             taxService = service;
+            env = environment;
         }
 
         public async Task<IActionResult> GetTaxRate(string zip)
@@ -35,11 +39,10 @@ namespace TaxCalc.Controllers
 
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
+            if (env.IsDevelopment())
+                ViewBag.Env = "Development";
+            else
+                ViewBag.Env = "Production";
             return View();
         }
 
