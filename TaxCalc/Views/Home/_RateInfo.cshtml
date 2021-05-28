@@ -1,68 +1,46 @@
 ﻿@model TaxCalc.Entities.Rate
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.city)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.state)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.zip)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.county)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.city_rate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.combined_district_rate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.combined_rate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.county_rate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.state_rate)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                @Html.DisplayFor(model => model.city)
-            </td>
-            <td id="state">
-                @Html.DisplayFor(model => model.state)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.zip)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.county)
-            </td>
-            <td>
-                @Html.Raw(Model.city_rate.ToString("P2"))
-            </td>
-            <td>
-                @Html.Raw(Model.combined_district_rate.ToString("P2"))
-            </td>
-            <td>
-                @Html.Raw(Model.combined_rate.ToString("P2"))
-            </td>
-            <td>
-                @Html.Raw(Model.county_rate.ToString("P2"))
-            </td>
-            <td>
-                @Html.Raw(Model.state_rate.ToString("P2"))
-            </td>
-        </tr>
-    </tbody>
-</table>
-@Html.HiddenFor(model => model.state)
+<div class="text-left pad-left">
+    <div class="row">
+        <div class="col-sm-12">
+            <div>
+                @Html.LabelFor(model => model.city, new { @class = "control-label, font-weight-bold" }): @Html.DisplayFor(model => model.city)
+            </div>
+            <div>
+                @Html.LabelFor(model => model.state, new { @class = "control-label, font-weight-bold" }): @Html.DisplayFor(model => model.state)
+            </div>
+            <div>
+                @Html.LabelFor(model => model.zip, new { @class = "control-label, font-weight-bold" }): @Html.DisplayFor(model => model.zip)
+            </div>
+            <div>
+                @Html.LabelFor(model => model.county, new { @class = "control-label, font-weight-bold" }): @Html.DisplayFor(model => model.county)
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div>
+                @Html.LabelFor(model => model.city_rate, new { @class = "control-label, font-weight-bold" }): @Html.Raw(Model.city_rate.ToString("P2"))
+            </div>
+            <div>
+                @Html.LabelFor(model => model.combined_district_rate, new { @class = "control-label, font-weight-bold" }): @Html.Raw(Model.combined_district_rate.ToString("P2"))
+            </div>
+            <div>
+                @Html.LabelFor(model => model.combined_rate, new { @class = "control-label, font-weight-bold" }): @Html.Raw(Model.combined_rate.ToString("P2"))
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div>
+                @Html.LabelFor(model => model.county_rate, new { @class = "control-label, font-weight-bold" }): @Html.Raw(Model.county_rate.ToString("P2"))
+            </div>
+            <div>
+                @Html.LabelFor(model => model.state_rate, new { @class = "control-label, font-weight-bold" }): @Html.Raw(Model.state_rate.ToString("P2"))
+            </div>
+            <div>
+                @Html.HiddenFor(model => model.state)
+            </div>
+        </div>
+    </div>
+</div>

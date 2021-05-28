@@ -9,7 +9,7 @@ namespace TaxCalc.Entities
 
     public class Tax
     {
-        [Display(Name = "Amount To Collect")]
+        [Display(Name = "Tax to Collect")]
         public float amount_to_collect { get; set; }
 
         [Display(Name = "Breakdown")]

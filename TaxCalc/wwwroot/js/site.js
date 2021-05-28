@@ -2,7 +2,7 @@
     event.preventDefault();
     var button = $(event.currentTarget);
     button.attr("disabled", "disabled");
-    var zip = $("#zip").val();
+    var zip = $("#zipCode").val();
     if (zip === "undefined" || zip === "") {
         button.removeAttr("disabled");
         $("#zip").focus();
@@ -33,14 +33,14 @@ $("#taxCalcSubmit").on("click", function (event) {
     var button = $(event.currentTarget);
     button.attr("disabled", "disabled");
     var url = button.data("url");
-    var zip = $("#zip").val();
+    var zip = $("#zipCode").val();
     if (zip === "undefined" || zip === "") {
         button.removeAttr("disabled");
         $("#zip").focus();
         return alert("Please find your tax rate before calculating tax.");        
     }
     url += "?zip=" + zip;
-    var state = $("#state").text();
+    var state = $("#state").val();
     if (state === "undefined" || state === "") {
         button.removeAttr("disabled");
         $("#zip").focus();
